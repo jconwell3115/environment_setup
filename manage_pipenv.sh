@@ -45,7 +45,7 @@ if [ -f "$REQUIREMENTS_TXT" ]; then
     echo "Installing dependencies from $REQUIREMENTS_TXT ..."
     echo "*********************************************"
     echo ""
-    pipenv run pip install -r "$REQUIREMENTS_TXT"
+    pipenv run pipenv install -r "$REQUIREMENTS_TXT"
 else
     echo ""
     echo "*********************************************"
