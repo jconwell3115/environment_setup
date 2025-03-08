@@ -19,7 +19,7 @@ KEY_NAME="id_ed25519"
 KEY_PATH="$HOME/.ssh/$KEY_NAME"
 KEY_TYPE="ed25519"
 KEY_SIZE="2048"
-EMAIL="jonathan.conwell@marriott-sp.com"
+EMAIL="jconwell3115@gmail.com"
 
 # Define a function to handle errors
 handle_error() {
@@ -33,13 +33,13 @@ handle_error() {
 # Set the trap to call handle_error on ERR signal
 trap handle_error ERR
 
-
-echo ""
-echo "*******************************************************************************"
-echo "Removing old virtualenvs if they exist"
-echo "*******************************************************************************"
-echo ""
-rm -rf /home/jconw483/.local/share/virtualenvs/
+# Commented out for now
+#echo ""
+#echo "*******************************************************************************"
+##echo "Removing old virtualenvs if they exist"
+#echo "*******************************************************************************"
+#echo ""
+#rm -rf /home/jconw483/.local/share/virtualenvs/
 
 #Get and Install Miniconda3-latest-Linux-x86_64
 if [ ! -d "$CONDA_DIR" ]; then
