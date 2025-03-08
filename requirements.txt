@@ -31,7 +31,7 @@ pipdeptree
 pip-tools
 pre-commit
 pysnmp
-pystemd
+"pyats[full]"
 simplejson
 tabulate
 tqdm
