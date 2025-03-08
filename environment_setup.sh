@@ -2,6 +2,7 @@
 
 # Get project name
 read -rp "Enter the project name: " PROJECT_NAME
+read -rp "Enter the full repo ssh info: " REPO
 read -rp "Enter the repo name: " REPO_NAME
 
 # Variable Configuration
@@ -128,7 +129,7 @@ echo "**************************************************************************
 echo "Cloning $WORK_TOOLS_DIR repos ..."
 echo "*******************************************************************************"
 echo ""
-git clone git@git.marriott.com:jconw483/global_pipenv.git
+git clone git@github.com:jconwell3115/environment_setup.git
 
 # Wait for 30 seconds
 echo ""
@@ -137,7 +138,8 @@ read -t 30 -rp "Pausing for 30 seconds or until you press enter ..."
 echo "*******************************************************************************"
 echo ""
 
-git clone git@git.marriott.com:jconw483/bin.git
+# This will be created later, it contains useful scripts for the development environment
+#git clone git@github.com:jconwell3115/bin.git
 
 # Setup Pipenv for my_work_tools
 /home/jconw483/my_work_tools/global_pipenv/manage_pipenv.sh "$WORK_TOOLS_DIR"
@@ -222,7 +224,7 @@ echo "**************************************************************************
 echo "Attempting to Clone $REPO_NAME repos"
 echo "*******************************************************************************"
 echo ""
-git clone git@git.marriott.com:Network-DevOps/"$REPO_NAME".git
+git clone "$REPO"
 
 /home/jconw483/my_work_tools/global_pipenv/manage_pipenv.sh "$PROJECT_DIR"
 
@@ -233,22 +235,10 @@ echo "**************************************************************************
 echo "Setting up pre-commit in $(pwd)"
 echo "*******************************************************************************"
 echo ""
-if [ -L "/home/prube194/git/global_venv/.pre-commit-config.yaml" ]; then
-    echo ""
-    echo "*******************************************************************************"
-    echo "Found .pre-commit-config.yaml file, deleting it to start fresh ..."
-    echo "*******************************************************************************"
-    echo ""
-    rm -f .pre-commit-config.yaml
-else
-    echo ""
-    echo "*******************************************************************************"
-    echo "Copying .pre-commit-config.yaml ..."
-    echo "*******************************************************************************"
-    echo ""
-fi
+# Remove and existing .pre-commit-config.yml file
 rm -f .pre-commit-config.yaml
-scp -p "$GLOBAL_PIPENV_DIR/.pre-commit-config.yaml" "$PROJECT_DIR/$REPO_NAME"
+rm -f .pre-commit-config.yml
+scp -p "$GLOBAL_PIPENV_DIR/.pre-commit-config.yml" "$PROJECT_DIR/$REPO_NAME"
 pipenv run pre-commit install
 
 
