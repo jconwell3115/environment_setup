@@ -9,7 +9,7 @@ read -rp "Enter the repo name: " REPO_NAME
 WORK_ENV_DIR="$HOME/Work_Environments/"
 WORK_TOOLS_DIR="$HOME/my_work_tools"
 BIN_DIR=$WORK_TOOLS_DIR/bin/
-GLOBAL_PIPENV_DIR="$WORK_TOOLS_DIR/global_pipenv"
+GLOBAL_PIPENV_DIR="$WORK_TOOLS_DIR/environment_setup"
 PROJECT_DIR="$WORK_ENV_DIR/$PROJECT_NAME"
 CONDA_DIR="/home/jconw483/miniconda3/"
 USERNAME="Jonathan Conwell"
@@ -142,25 +142,25 @@ echo ""
 #git clone git@github.com:jconwell3115/bin.git
 
 # Setup Pipenv for my_work_tools
-/home/jconw483/my_work_tools/global_pipenv/manage_pipenv.sh "$WORK_TOOLS_DIR"
+/home/jconw483/my_work_tools/environment_setup/manage_pipenv.sh "$WORK_TOOLS_DIR"
 
 echo ""
 echo "*******************************************************************************"
 echo "Setting up pre-commit in $(pwd)"
 echo "*******************************************************************************"
 echo ""
-cd /home/jconw483/my_work_tools/global_pipenv/ || exit
+cd /home/jconw483/my_work_tools/environment_setup/ || exit
 pipenv run pre-commit install
 
-cd /home/jconw483/my_work_tools/bin/ || exit
-echo ""
-echo "*******************************************************************************"
-echo "Setting up pre-commit in $(pwd)"
-echo "*******************************************************************************"
-echo ""
-scp -p "$GLOBAL_PIPENV_DIR/.pre-commit-config.yaml" "$BIN_DIR"
-pipenv run pre-commit install
-scp -p "$GLOBAL_PIPENV_DIR/.pre-commit-config.yaml" "$BIN_DIR"
+# cd /home/jconw483/my_work_tools/bin/ || exit
+# echo ""
+#echo "*******************************************************************************"
+#echo "Setting up pre-commit in $(pwd)"
+#echo "*******************************************************************************"
+#echo ""
+#scp -p "$environment_setup_DIR/.pre-commit-config.yaml" "$BIN_DIR"
+#pipenv run pre-commit install
+#scp -p "$environment_setup_DIR/.pre-commit-config.yaml" "$BIN_DIR"
 
 # Set .bashrc parameters
 echo ""
@@ -168,7 +168,7 @@ echo "**************************************************************************
 echo "Setting .bashrc parameters ..."
 echo "*******************************************************************************"
 echo ""
-cat  "$GLOBAL_PIPENV_DIR/mybashrc" > ~/.bashrc
+cat  "$environment_setup_DIR/mybashrc" > ~/.bashrc
 source /home/jconw483/.bashrc
 
 # Create the ~/Work_Environments/ directory
@@ -226,7 +226,7 @@ echo "**************************************************************************
 echo ""
 git clone "$REPO"
 
-/home/jconw483/my_work_tools/global_pipenv/manage_pipenv.sh "$PROJECT_DIR"
+/home/jconw483/my_work_tools/environment_setup/manage_pipenv.sh "$PROJECT_DIR"
 
 
 cd "$PROJECT_DIR/$REPO_NAME" || exit
