@@ -168,7 +168,7 @@ echo "**************************************************************************
 echo "Setting .bashrc parameters ..."
 echo "*******************************************************************************"
 echo ""
-cat  "$environment_setup_DIR/mybashrc" > ~/.bashrc
+cat  "$GLOBAL_PIPENV_DIR/mybashrc" > ~/.bashrc
 source /home/jconw483/.bashrc
 
 # Create the ~/Work_Environments/ directory
