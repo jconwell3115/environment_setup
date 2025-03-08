@@ -12,8 +12,8 @@ fi
 
 # Configuration
 PIPENV_DIR=$1
-REQUIREMENTS_TXT="$HOME/my_work_tools/global_pipenv/requirements.txt"
-REQUIREMENTS_YML="$HOME/my_work_tools/global_pipenv/requirements.yml"
+REQUIREMENTS_TXT="$HOME/my_work_tools/environment_setup/requirements.txt"
+REQUIREMENTS_YML="$HOME/my_work_tools/environment_setup/requirements.yml"
 
 if [ "$(pwd)" = "$PIPENV_DIR" ]; then
   echo ""
