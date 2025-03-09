@@ -18,7 +18,22 @@
     ```
 6. When promted enter the project and repo name
    > I use a specific folder structure, the project is the name of the folder where I create the pipenv environment.
-   > 
+   > The following is the folder structure after clonig a repo call Work_Dump.
+   ```bash
+   .
+   ├── my_work_tools
+   │   └── environment_setup
+   └── Work_Environments
+       └── Work_Dump
+           └── Work_Dump
+               ├── Ansible
+               ├── Automation_Repo
+               ├── Config_Generator
+               │   ├── CSV_Files
+               │   └── Templates
+               ├── DNAC_API
+               └── Work_Tools
+   ```
    > The repo folder is then cloned into that folder.
 7. Follow the prompts onscreen to install conda, set python 3.12 as the default and create the ssh key .
 
