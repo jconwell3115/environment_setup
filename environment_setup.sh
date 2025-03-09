@@ -238,7 +238,7 @@ echo ""
 # Remove and existing .pre-commit-config.yml file
 rm -f .pre-commit-config.yaml
 rm -f .pre-commit-config.yml
-scp -p "$GLOBAL_PIPENV_DIR/.pre-commit-config.yml" "$PROJECT_DIR/$REPO_NAME"
+scp -p "$GLOBAL_PIPENV_DIR/.pre-commit-config.yaml" "$PROJECT_DIR/$REPO_NAME"
 pipenv run pre-commit install
 
 
