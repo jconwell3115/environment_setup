@@ -152,6 +152,18 @@ echo ""
 cd /home/jconw483/my_work_tools/environment_setup/ || exit
 pipenv run pre-commit install
 
+echo ""
+echo "*********************************************"
+echo "Creating logs directory and base log files"
+echo "*********************************************"
+echo ""
+mkdir logs
+touch logs/ansible-lint.log
+touch logs/yamllint.log
+touch logs/ruff.log
+touch logs/trufflehog.log
+touch logs/djlint.log
+
 # cd /home/jconw483/my_work_tools/bin/ || exit
 # echo ""
 #echo "*******************************************************************************"
@@ -160,7 +172,18 @@ pipenv run pre-commit install
 #echo ""
 #scp -p "$environment_setup_DIR/.pre-commit-config.yaml" "$BIN_DIR"
 #pipenv run pre-commit install
-#scp -p "$environment_setup_DIR/.pre-commit-config.yaml" "$BIN_DIR"
+
+#echo ""
+#echo "*********************************************"
+#echo "Creating logs directory and base log files"
+#echo "*********************************************"
+#echo ""
+#mkdir logs
+#touch logs/ansible-lint.log
+#touch logs/yamllint.log
+#touch logs/ruff.log
+#touch logs/trufflehog.log
+#touch logs/djlint.log
 
 # Set .bashrc parameters
 echo ""
@@ -240,6 +263,18 @@ rm -f .pre-commit-config.yaml
 rm -f .pre-commit-config.yml
 scp -p "$GLOBAL_PIPENV_DIR/.pre-commit-config.yaml" "$PROJECT_DIR/$REPO_NAME"
 pipenv run pre-commit install
+
+echo ""
+echo "*******************************************************************************"
+echo "Creating logs directory and base log files"
+echo "*******************************************************************************"
+echo ""
+mkdir logs
+touch logs/ansible-lint.log
+touch logs/yamllint.log
+touch logs/ruff.log
+touch logs/trufflehog.log
+touch logs/djlint.log
 
 
 echo ""
